@@ -17,6 +17,7 @@ import lombok.Setter;
 public class GameRequest extends BaseEntity {
 
     private String title;
+
     @Enumerated(EnumType.STRING)
     private RequestStatus status;
 }
