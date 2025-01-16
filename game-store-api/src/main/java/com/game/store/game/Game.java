@@ -3,6 +3,7 @@ package com.game.store.game;
 import com.game.store.category.Category;
 import com.game.store.comment.Comment;
 import com.game.store.commom.BaseEntity;
+import com.game.store.platform.Platform;
 import com.game.store.wishlist.WishList;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -24,8 +25,12 @@ public class Game extends BaseEntity {
 
     private String title;
 
-    @Enumerated(EnumType.STRING)
-    private SupportedPlatforms supportedPlatforms;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "game_platform", joinColumns = @JoinColumn(name = "game_id"),
+            foreignKey = @ForeignKey(name = "fk_game_platform"),
+            inverseJoinColumns = @JoinColumn(name = "platform_id"),
+            inverseForeignKey = @ForeignKey(name = "fk_platform_game"))
+    private List<Platform> platforms;
 
     private String coverPicture;
 
