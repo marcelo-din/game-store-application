@@ -12,5 +12,4 @@ public class GameStoreApiApplication {
     public static void main(String[] args) {
         SpringApplication.run(GameStoreApiApplication.class, args);
     }
-
 }

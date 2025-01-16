@@ -1,6 +1,9 @@
 spring:
   application:
     name: game-store-api
+  profiles:
+    active:
+      - dev
 
   datasource:
     url: jdbc:postgresql://localhost:5433/game_store_app

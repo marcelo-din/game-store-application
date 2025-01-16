@@ -10,6 +10,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 
 import java.util.List;
 
@@ -20,6 +21,7 @@ import static jakarta.persistence.CascadeType.PERSIST;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@SuperBuilder
 @Entity
 public class Game extends BaseEntity {
 
@@ -56,5 +58,15 @@ public class Game extends BaseEntity {
     public void removeWishList(WishList wishList) {
         this.wishLists.remove(wishList);
         wishList.getGames().remove(this);
+    }
+
+    public void addPlatform(Platform platform) {
+        this.platforms.add(platform);
+        platform.getGames().add(this);
+    }
+
+    public void removePlatform(Platform platform) {
+        this.platforms.remove(platform);
+        platform.getGames().remove(this);
     }
 }

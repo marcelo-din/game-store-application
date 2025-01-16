@@ -13,7 +13,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
+@Entity(name = "game_request")
 public class GameRequestEntity extends BaseEntity {
 
     private String title;
